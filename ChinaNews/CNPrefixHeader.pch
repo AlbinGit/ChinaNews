@@ -1,0 +1,49 @@
+//
+//  CNPrefixHeader.pch
+//  ChinaNews
+//
+//  Created by Liufangfang on 2016/11/22.
+//  Copyright © 2016年 Liufangfang. All rights reserved.
+//
+
+#ifndef CNPrefixHeader_pch
+#define CNPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+#pragma mark - ====宽高
+//基本宽高
+#define CN_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define CN_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define CN_STATUS_HEIGHT 20.*CN_HEIGHT_BASE
+#define CN_NAVIGATION_HEIGHT 44.*CN_HEIGHT_BASE
+#define CN_SEGMENT_HEIGHT 44.*CN_HEIGHT_BASE
+#define CN_TABBAR_HEIGHT 49.*CN_HEIGHT_BASE
+//适配宽高
+#define CN_WIDTH_BASE (CN_SCREEN_WIDTH/375)
+#define CN_HEIGHT_BASE (CN_SCREEN_HEIGHT/667)
+
+#pragma mark - ====字体
+//普通体
+#define CN_FONTTSIZE(xx) [UIFont systemFontOfSize:CN_HEIGHT_BASE*xx]
+//粗体
+#define CN_BOLD_FONTTSIZE(xx) [UIFont boldSystemFontOfSize:CN_HEIGHT_BASE*xx]
+
+#pragma mark - ====为避免循环引用，弱化自身
+#define WeakSelf(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
+#pragma mark - ====第三方类库
+
+#import <UIImageView+WebCache.h>
+#import <Masonry/Masonry.h>
+
+#pragma mark - ====自定义工具类库
+
+#import "CNColor.h"
+
+#endif
+
+#endif /* CNPrefixHeader_pch */
